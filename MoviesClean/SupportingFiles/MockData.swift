@@ -17,7 +17,8 @@ struct MockData {
             original_language: "en",
             title: "The Matrix",
             release_date: "1999-03-31",
-            poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+            poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+            vote_average: 8.7
         ),
         Movie(
             backdrop_path: "/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
@@ -27,7 +28,8 @@ struct MockData {
             original_language: "en",
             title: "Inception",
             release_date: "2010-07-16",
-            poster_path: "/8s4h9friP6Ci3adRGahHARVd76E.jpg"
+            poster_path: "/8s4h9friP6Ci3adRGahHARVd76E.jpg",
+            vote_average: 8.8
         ),
         Movie(
             backdrop_path: "/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg",
@@ -37,7 +39,8 @@ struct MockData {
             original_language: "en",
             title: "Interstellar",
             release_date: "2014-11-07",
-            poster_path: "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+            poster_path: "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+            vote_average: 8.6
         ),
         Movie(
             backdrop_path: "/qhPtAc1TKbMPqNvcdXSOn9Bn7hZ.jpg",
@@ -47,7 +50,8 @@ struct MockData {
             original_language: "en",
             title: "The Dark Knight",
             release_date: "2008-07-18",
-            poster_path: "/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+            poster_path: "/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+            vote_average: 9.0
         )
     ]
 
@@ -59,6 +63,7 @@ struct MockData {
         original_language: "en",
         title: "The Matrix",
         release_date: "1999-03-31",
-        poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+        poster_path: "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+        vote_average: 8.7
     )
 }

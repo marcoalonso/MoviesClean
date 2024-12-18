@@ -36,6 +36,14 @@ struct MovieDetailView: View {
                 Text(movie.overview ?? "")
                     .font(.body)
                     .padding()
+                
+                HStack {
+                    Text(movie.release_date ?? "")
+                        .font(.footnote)
+                    
+                    Text( "⭐️ \(String(format: "%.2f", movie.vote_average ?? 0.0))")
+                        .font(.footnote)
+                }
             }
         }
     }

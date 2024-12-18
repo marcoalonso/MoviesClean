@@ -16,6 +16,7 @@ struct Movie: Identifiable, Decodable {
     let title: String?
     let release_date: String?
     let poster_path: String?
+    let vote_average: Double?
 
     var posterURL: URL? {
         URL(string: "https://image.tmdb.org/t/p/original\(poster_path ?? "")")
