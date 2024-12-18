@@ -21,17 +21,19 @@ struct MovieSearchGridView: View {
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                             ForEach(viewModel.searchResults) { movie in
-                                VStack {
-                                    WebImage(url: movie.posterURL)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(height: 200)
-                                        .cornerRadius(8)
+                                NavigationLink(destination: MovieDetailView(movie: movie)) {
+                                    VStack {
+                                        WebImage(url: movie.posterURL)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(height: 200)
+                                            .cornerRadius(8)
 
-                                    Text(movie.title ?? "Unknown")
-                                        .font(.subheadline)
-                                        .multilineTextAlignment(.center)
-                                        .lineLimit(2)
+                                        Text(movie.title ?? "Unknown")
+                                            .font(.subheadline)
+                                            .multilineTextAlignment(.center)
+                                            .lineLimit(2)
+                                    }
                                 }
                             }
                         }
@@ -48,3 +50,13 @@ struct MovieSearchGridView: View {
     }
 }
 
+#Preview {
+    let mockRepository = MockRepository()
+    let fetchMoviesUseCase = FetchMoviesUseCase(repository: mockRepository)
+    let searchMoviesUseCase = SearchMoviesUseCase(repository: mockRepository)
+
+    let mockViewModel = MovieListViewModel(fetchMoviesUseCase: fetchMoviesUseCase, searchMoviesUseCase: searchMoviesUseCase)
+    mockViewModel.searchResults = MockData.sampleMovies
+
+    return MovieSearchGridView(viewModel: mockViewModel)
+}
