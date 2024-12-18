@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MovieDetailView: View {
     let movie: Movie
@@ -13,19 +14,12 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                AsyncImage(url: movie.posterURL) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 300)
-                        .cornerRadius(12)
-                        .shadow(radius: 8)
-                } placeholder: {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                        .frame(maxWidth: 300, minHeight: 450)
-                        .cornerRadius(12)
-                }
+                WebImage(url: movie.posterURL)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 300)
+                    .cornerRadius(12)
+                    .shadow(radius: 8)
 
                 Text(movie.title ?? "")
                     .font(.title)

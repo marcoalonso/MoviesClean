@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MovieListView: View {
     @StateObject var viewModel: MovieListViewModel
@@ -17,20 +18,13 @@ struct MovieListView: View {
                     ForEach(viewModel.movies) { movie in
                         NavigationLink(destination: MovieDetailView(movie: movie)) {
                             VStack {
-                                AsyncImage(url: movie.posterURL) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 150, height: 225)
-                                        .cornerRadius(8)
-                                        .shadow(radius: 4)
-                                } placeholder: {
-                                    Rectangle()
-                                        .fill(Color.gray.opacity(0.3))
-                                        .frame(width: 150, height: 225)
-                                        .cornerRadius(8)
-                                }
-
+                                WebImage(url: movie.posterURL)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 150, height: 225)
+                                    .cornerRadius(8)
+                                    .shadow(radius: 4)
+                                
                                 Text(movie.title ?? "Unknown")
                                     .font(.headline)
                                     .foregroundColor(.primary)
