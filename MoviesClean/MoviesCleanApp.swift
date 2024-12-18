@@ -10,8 +10,13 @@ import SwiftUI
 @main
 struct MoviesCleanApp: App {
     var body: some Scene {
+        
+        let apiService = APIService()
+        let fetchMoviesUseCase = FetchMoviesUseCase(repository: apiService)
+        let viewModel = MovieListViewModel(fetchMoviesUseCase: fetchMoviesUseCase)
+        
         WindowGroup {
-            ContentView()
+            MovieListView(viewModel: viewModel)
         }
     }
 }
