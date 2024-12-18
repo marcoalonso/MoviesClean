@@ -26,9 +26,7 @@ class MovieListViewModel: ObservableObject {
             isLoading = true
             do {
                 movies = try await fetchMoviesUseCase.execute()
-                print("Debug: movies \(movies.count)")
             } catch {
-                print("Debug: error \(error.localizedDescription)")
                 errorMessage = error.localizedDescription
             }
             isLoading = false
