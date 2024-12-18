@@ -13,10 +13,11 @@ struct MoviesCleanApp: App {
         
         let apiService = APIService()
         let fetchMoviesUseCase = FetchMoviesUseCase(repository: apiService)
-        let viewModel = MovieListViewModel(fetchMoviesUseCase: fetchMoviesUseCase)
+        let searchMoviesUseCase = SearchMoviesUseCase(repository: apiService)
+        let viewModel = MovieListViewModel(fetchMoviesUseCase: fetchMoviesUseCase, searchMoviesUseCase: searchMoviesUseCase)
         
         WindowGroup {
-            MovieListView(viewModel: viewModel)
+            TabBarView(viewModel: viewModel)
         }
     }
 }

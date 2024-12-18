@@ -48,7 +48,11 @@ struct MovieListView: View {
 }
 
 #Preview {
-    let mockViewModel = MovieListViewModel(fetchMoviesUseCase: FetchMoviesUseCase(repository: MockRepository()))
+    let mockRepository = MockRepository()
+    let fetchMoviesUseCase = FetchMoviesUseCase(repository: mockRepository)
+    let searchMoviesUseCase = SearchMoviesUseCase(repository: mockRepository)
+    
+    let mockViewModel = MovieListViewModel(fetchMoviesUseCase: fetchMoviesUseCase, searchMoviesUseCase: searchMoviesUseCase)
     mockViewModel.movies = MockData.sampleMovies
 
     return MovieListView(viewModel: mockViewModel)

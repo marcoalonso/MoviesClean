@@ -11,4 +11,10 @@ class MockRepository: MovieRepository {
     func fetchMovies() async throws -> [Movie] {
         return MockData.sampleMovies
     }
+    
+    func searchMovies(by name: String) async throws -> [Movie] {
+        return MockData.sampleMovies.filter { movie in
+            movie.title?.localizedCaseInsensitiveContains(name) ?? false
+        }
+    }
 }

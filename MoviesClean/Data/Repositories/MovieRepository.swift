@@ -9,4 +9,5 @@ import Foundation
 
 protocol MovieRepository {
     func fetchMovies() async throws -> [Movie]
+    func searchMovies(by name: String) async throws -> [Movie]
 }
